@@ -1,13 +1,17 @@
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Node.js required](https://img.shields.io/badge/Node.js-required-green.svg)](https://nodejs.org)
+[![skills.sh compatible](https://img.shields.io/badge/skills.sh-compatible-blueviolet.svg)](https://skills.sh)
+
 # construct3-typescript
 
-A self-contained [Agent Skill](https://agentskills.io) that helps AI agents
-**write TypeScript for [Construct 3](https://www.construct.net) games** and
-**edit Construct scenes/layouts by hand** — safely and idiomatically.
+An [Agent Skill](https://agentskills.io) for **writing Construct 3 TypeScript** and
+**safely editing game scenes by hand** — with a zero-dependency validator and distilled
+docs drawn from 15 real projects.
 
 Compatible with **Claude Code**, **Codex**, **Antigravity**, and
 [any agent supported by skills.sh](https://skills.sh).
 
-## What it's for
+## Why
 
 Construct 3 is a browser-based game editor. A project is a folder of JSON files
 (`project.c3proj`, `layouts/`, `objectTypes/`, `eventSheets/`) plus TypeScript
@@ -15,67 +19,148 @@ under `scripts/`. Two things make AI assistance tricky:
 
 1. **There's no headless runtime** — you can't "run" a `.c3proj` from a terminal
    to check your work. The editor lives in the browser.
-2. **The editor normally enforces all the cross-references** between those JSON
-   files (instance → object type → plugin → behavior → instance variable). When
-   you hand-edit the files outside the editor, *nothing* does — so a typo
-   silently corrupts the project.
+2. **The editor normally enforces all cross-references** between those JSON files
+   (instance → object type → plugin → behavior → instance variable). When you
+   hand-edit outside the editor, *nothing* does — so a typo silently corrupts the
+   project.
 
-This skill closes both gaps:
+This skill closes both gaps with a validator harness and distilled documentation.
 
-- A **zero-dependency validator** (`scripts/validate.mjs`) re-checks a project's
-  consistency after every hand-edit (instance types resolve, uids are unique,
-  plugins/behaviors/instance-variables are declared, scripts exist, JSON parses).
-- **Distilled docs + a pattern cookbook** drawn from 15 real Construct projects,
-  so generated code follows Construct's actual TypeScript conventions
-  (`runOnStartup`, `IRuntime`, instance subclassing, tweens/timers/behaviors,
-  families, 3D camera, web workers, …).
-- **Templates** for the common artifacts (entry script, instance class, object
-  type, layout instance block).
+## Quick install
 
-**Use it when** you're adding/editing Construct scripts, editing a layout/scene
-JSON, adding an object type, wiring scripts into the runtime, or validating a
-`.c3proj` after hand-edits.
+```bash
+npx skills add tatosgames/construct-skill
+```
+
+The CLI auto-detects which coding agents you have installed. To target a specific
+agent or install to multiple at once, use the `-a` flag (see below).
 
 ## Install
 
+### Supported agents
+
+| Agent | CLI flag | Global install path |
+|-------|----------|---------------------|
+| Claude Code | `claude-code` | `~/.claude/skills/construct3-typescript/` |
+| Codex | `codex` | `~/.codex/skills/construct3-typescript/` |
+| Antigravity | `antigravity` | `~/.antigravity/skills/construct3-typescript/` |
+
 ```bash
-# Claude Code
+# One agent
 npx skills add tatosgames/construct-skill -a claude-code
-
-# Codex
 npx skills add tatosgames/construct-skill -a codex
-
-# Antigravity
 npx skills add tatosgames/construct-skill -a antigravity
 
 # All three at once
 npx skills add tatosgames/construct-skill -a claude-code -a codex -a antigravity
 ```
 
+To remove:
+
+```bash
+npx skills remove tatosgames/construct-skill -a claude-code
+```
+
 ## What's inside
 
 ```
 skills/construct3-typescript/
-  SKILL.md                     man page — start here
-  scripts/validate.mjs         the harness: validates a Construct project after hand-edits
-  references/RECIPES.md        step-by-step scene/code edit procedures
-  references/API-REFERENCE.md  distilled runtime scripting API
-  references/PATTERNS.md       cookbook of cited snippets + "which example shows what"
-  references/examples/         15 real projects, code-only (.ts/.js/.json/.c3proj)
-  assets/templates/            paste-and-edit starters (main.ts, objectType.json, …)
 ```
+
+| Path | Purpose |
+|------|---------|
+| `SKILL.md` | Man page — injected into the agent's context at install |
+| `scripts/validate.mjs` | Zero-dependency validator — run after every hand-edit |
+| `references/RECIPES.md` | Step-by-step: place instances, create object types, layers, behaviors |
+| `references/API-REFERENCE.md` | Distilled `IRuntime` / `IObjectType` / `IInstance` scripting API |
+| `references/PATTERNS.md` | Cited snippets from 15 real projects + "which example shows what" |
+| `references/examples/` | 15 real Construct 3 projects (code-only: `.ts` / `.js` / `.json`) |
+| `assets/templates/` | Paste-and-edit starters: `main.ts`, `objectType.json`, instance block |
+
+## What the validator checks
+
+`scripts/validate.mjs` is a zero-dependency Node.js script that validates a Construct 3
+project folder and exits `0` on success, `1` on errors, `2` if no `project.c3proj` is found.
+
+| Check | What it catches |
+|-------|----------------|
+| JSON parsing | Malformed JSON with line:column error reporting |
+| Instance types | Layout instances whose `type` doesn't resolve to a known object type |
+| Unique UIDs | Duplicate `uid` values within the same layout |
+| Plugin / behavior declarations | Object types using plugins/behaviors not listed in `usedAddons` |
+| Instance variables | Per-instance overrides not declared on the object type |
+| Script registration | Scripts listed in `project.c3proj` that don't exist on disk; `.ts` files on disk that aren't registered |
+
+Supports `--json` for machine-readable output (useful in CI).
 
 ## Use it
 
-After installing, ask your agent to "write Construct 3 TypeScript", "edit a
-Construct scene", "add an object type", or "validate my Construct project".
-Or run the validator directly (path will match your agent's install location):
+After installing, ask your agent naturally — the skill is automatically in context:
+
+```
+"Write a TypeScript module that spawns enemies on a timer"
+"Add a Sprite object type named Enemy with a health instance variable"
+"Place three instances of the Player object at the top of Layout 1"
+"Add a Tween behavior to the Player object type"
+"Validate my Construct project"
+```
+
+Or run the validator directly:
 
 ```bash
-# Example — Claude Code global install
+# Against a bundled example (from the skill root)
+node scripts/validate.mjs "references/examples/Spell Caster in code"
+
+# Against your own project (any path)
 node ~/.claude/skills/construct3-typescript/scripts/validate.mjs "path/to/your/project"
+```
+
+Example output:
+
+```
+✔  JSON: 24 files parsed OK
+✔  Instance types: all resolve
+✔  UIDs: all unique
+✔  Plugins/behaviors: all declared
+✔  Scripts: all registered and present on disk
+No errors found.
+```
+
+## Development
+
+The skill is self-contained — everything lives inside `skills/construct3-typescript/`.
+`SKILL.md` is the entry point injected into the agent; the rest are companion references
+loaded on demand.
+
+**Adding a new example project**
+
+1. Strip all binary assets, keeping only `.ts`, `.js`, `.json`, and `.c3proj` files.
+2. Drop the folder into `references/examples/`.
+3. Run the validator to confirm it passes: `node scripts/validate.mjs "references/examples/<YourProject>"`.
+4. Add a row to the "which example demonstrates what" table in `references/PATTERNS.md`.
+
+**Updating recipes or patterns**
+
+Edit `references/RECIPES.md` or `references/PATTERNS.md` directly — these are plain
+Markdown. Keep each recipe's last step as a validate run so agents follow the same
+discipline.
+
+**Testing the validator**
+
+```bash
+# Should exit 0
+node scripts/validate.mjs "references/examples/Spell Caster in code"
+
+# All bundled examples
+for d in references/examples/*/; do
+  echo "--- $d"; node scripts/validate.mjs "$d"
+done
 ```
 
 ## Author / License
 
-Built by **Luca Contato (Rising Pixel)**. MIT — see [`LICENSE`](LICENSE).
+Built by **[Luca Contato](https://risingpixel.it) (Rising Pixel)** · MIT — see [`LICENSE`](LICENSE)
+
+---
+
+*Found a bug or want to contribute? Open an issue or PR on [GitHub](https://github.com/tatosgames/construct-skill).*
