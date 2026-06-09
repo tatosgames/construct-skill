@@ -159,7 +159,7 @@ done
 
 ## Author / License
 
-Built by **[Luca Contato](https://risingpixel.it) (Rising Pixel)** · MIT — see [`LICENSE`](LICENSE)
+Built by **[Luca Contato](https://luca.uno) (Rising Pixel)** · MIT — see [`LICENSE`](LICENSE)
 
 ---
 
