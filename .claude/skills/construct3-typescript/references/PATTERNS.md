@@ -1,8 +1,8 @@
 # Construct 3 scripting — patterns cookbook
 
 Real, copy-able patterns extracted from the bundled example projects under
-`reference/examples/`. Each is cited `(Project — file)` so you can open the full
-source, e.g. `reference/examples/Gemstone Forger/scripts/main.ts`. Snippets are
+`references/examples/`. Each is cited `(Project — file)` so you can open the full
+source, e.g. `references/examples/Gemstone Forger/scripts/main.ts`. Snippets are
 verbatim or lightly trimmed. Pair this with `API-REFERENCE.md` (the interfaces)
 and `RECIPES.md` (editing the JSON).
 

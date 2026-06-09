@@ -5,12 +5,14 @@ with a validate run** — that is the safety net for hand-editing JSON. Paths ar
 relative to the project folder (the one containing `project.c3proj`).
 
 ```bash
-# from the skill directory; <project folder> is the user's project or a bundled example
-node validate.mjs "<project folder>"
+# run from the skill root; <project folder> is the user's project or a bundled example
+node scripts/validate.mjs "<project folder>"
 ```
 
-Templates referenced below live in `templates/` (relative to this skill
-directory); bundled example projects live in `reference/examples/`.
+Paths below are relative to the **skill root**: templates live in
+`assets/templates/`, bundled example projects in `references/examples/`.
+Project-internal paths (`layouts/…`, `objectTypes/…`) are relative to the
+`project.c3proj` folder you're editing.
 
 ---
 
@@ -21,7 +23,7 @@ A layout is `layouts/<Name>.json` → `layers[].instances[]`.
 1. Open the target layout JSON and find the layer you want (by `layers[].name`).
 2. **Duplicate**: copy an existing instance block of the **same `type`** from
    that layer (it already has the right `properties` keys for its plugin).
-   **New instance of a fresh type**: start from `templates/instance.sprite.json`
+   **New instance of a fresh type**: start from `assets/templates/instance.sprite.json`
    (delete the `__comment` line) and set `type` to the object type's name.
 3. Give the new block:
    - a **`uid` unique within this layout** (scan the file; pick an unused int),
@@ -38,8 +40,8 @@ A layout is `layouts/<Name>.json` → `layers[].instances[]`.
 ## 2. Create a new object type
 
 1. Pick the plugin. Copy a template:
-   - Sprite (has graphics/animations) → `templates/objectType.sprite.json`
-   - Text → `templates/objectType.text.json`
+   - Sprite (has graphics/animations) → `assets/templates/objectType.sprite.json`
+   - Text → `assets/templates/objectType.text.json`
    - Otherwise copy an existing `objectTypes/*.json` that uses the same plugin.
 2. Save it as `objectTypes/<Name>.json`. Set `name`, a fresh `sid`, and unique
    `sid`s on animations/frames/variables.

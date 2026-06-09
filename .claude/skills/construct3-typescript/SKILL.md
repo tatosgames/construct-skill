@@ -1,6 +1,13 @@
 ---
 name: construct3-typescript
 description: Write, create, and edit TypeScript code for Construct 3 games, and edit scenes/layouts by hand. Use when adding or editing scripts (main.ts, instance classes, modules), editing a layout/scene JSON, adding object types, wiring scripts into the runtime, or validating a Construct 3 project (.c3proj) after hand-edits. Covers the c3proj/layout/objectType/eventSheet JSON formats and the runtime scripting API conventions.
+license: MIT (see LICENSE)
+compatibility: Requires Node.js (for scripts/validate.mjs). Construct 3 itself is a browser-based editor; projects are opened via "Open local project folder".
+metadata:
+  author: Luca Contato (Rising Pixel)
+  version: "1.0"
+  category: game-development
+  tags: construct3, typescript, gamedev, scene-editing, validator
 ---
 
 # Construct 3 — TypeScript & scene authoring
@@ -20,32 +27,35 @@ files and nothing does when you hand-edit, the deliverable harness here is a
 > directory, so it can be packaged and dropped into any repo:
 > ```
 > construct3-typescript/
->   SKILL.md  validate.mjs        ← this file + the harness
->   RECIPES.md  API-REFERENCE.md  PATTERNS.md
->   templates/                    ← paste-and-edit starting points
->   reference/examples/<project>/ ← bundled real projects (code only: .ts/.json/.c3proj)
+>   SKILL.md                       ← this file
+>   scripts/validate.mjs           ← the harness
+>   references/RECIPES.md          ← scene/code edit procedures
+>   references/API-REFERENCE.md    ← runtime scripting API
+>   references/PATTERNS.md         ← cited pattern cookbook
+>   references/examples/<project>/ ← bundled real projects (code only: .ts/.js/.json/.c3proj)
+>   assets/templates/              ← paste-and-edit starting points
 > ```
-> **Paths to `reference/` and `templates/` are relative to this skill
-> directory.** The validator (`validate.mjs`) takes a project folder as its
-> argument — point it at the user's actual project (anywhere on disk), or at one
-> of the bundled examples. Project-internal paths like `layouts/Foo.json` are
-> relative to whatever `project.c3proj` folder you're editing.
+> **All paths in this skill are relative to the skill root** (the directory
+> holding this `SKILL.md`); run commands from there. The validator
+> (`scripts/validate.mjs`) takes a project folder as its argument — point it at
+> the user's actual project (anywhere on disk), or at one of the bundled
+> examples. Project-internal paths like `layouts/Foo.json` are relative to
+> whatever `project.c3proj` folder you're editing.
 
-**Companion files in this skill dir** (read the one that fits the task):
-- **`RECIPES.md`** — step-by-step procedures: place/duplicate an instance,
-  create an object type, layers & Z-order, instance variables & behaviors. Each
-  ends in a validate run. **Start here for "edit the scene" tasks.**
-- **`API-REFERENCE.md`** — distilled runtime scripting API (`IRuntime`,
-  `IObjectType`, `IInstance`, families, behaviors, plugin globals, lifecycle,
-  TypeScript null/subclassing rules) with manual citations. **Start here for
-  "write the code" tasks.**
-- **`PATTERNS.md`** — a cookbook of real, cited snippets pulled from the example
-  projects (tweens, timers, families, 3D camera, hierarchy, procedural gen, web
-  workers, DOM, …) plus a "which example demonstrates what" map. **Start here
-  when you need an idiomatic example of a specific feature.**
-- **`templates/`** — paste-and-edit starting points: `main.ts`, `globals.ts`,
-  `instance-class.ts`, `objectType.sprite.json`, `objectType.text.json`,
-  `instance.sprite.json`.
+**Companion files** (read the one that fits the task):
+- **`references/RECIPES.md`** — step-by-step procedures: place/duplicate an
+  instance, create an object type, layers & Z-order, instance variables &
+  behaviors. Each ends in a validate run. **Start here for "edit the scene".**
+- **`references/API-REFERENCE.md`** — distilled runtime scripting API
+  (`IRuntime`, `IObjectType`, `IInstance`, families, behaviors, plugin globals,
+  lifecycle, TypeScript null/subclassing rules). **Start here for "write code".**
+- **`references/PATTERNS.md`** — a cookbook of real, cited snippets pulled from
+  the example projects (tweens, timers, families, 3D camera, hierarchy,
+  procedural gen, web workers, DOM, …) plus a "which example demonstrates what"
+  map. **Start here when you need an idiomatic example of a feature.**
+- **`assets/templates/`** — paste-and-edit starting points: `main.ts`,
+  `globals.ts`, `instance-class.ts`, `objectType.sprite.json`,
+  `objectType.text.json`, `instance.sprite.json`.
 
 ## Validate (agent path — run this after every edit)
 
@@ -53,7 +63,7 @@ Zero-dependency Node script. Run it against the project folder you edited (the
 user's project, or a bundled example). From the skill directory:
 
 ```bash
-node validate.mjs "reference/examples/Spell Caster in code"
+node scripts/validate.mjs "references/examples/Spell Caster in code"
 ```
 
 (From elsewhere, give the full path to `validate.mjs` and to the project.)
@@ -76,7 +86,7 @@ Exit code `0` = no errors (warnings OK), `1` = errors. Add `--json` for
 machine-readable output. Verified output on the bundled sample projects:
 
 ```
-$ node validate.mjs "reference/examples/Spell Caster in code"
+$ node scripts/validate.mjs "references/examples/Spell Caster in code"
   ·  project "Spell Caster in code" — runtime=c3, format=1, savedWith=47604
   ·  checked 9 object types, 1 layout file(s) (16 instances), 0 event sheet(s), 5 registered script(s)
 
@@ -90,13 +100,13 @@ A bad instance type produces:
 ✗ FAILED — 1 error(s), 0 warning(s)
 ```
 
-## Bundled reference projects (`reference/examples/`)
+## Bundled reference projects (`references/examples/`)
 
 Read these before writing code — they are the source of truth for conventions.
 They are **code-only copies** (`.ts` / `.js` / `.json` / `.c3proj`; art and
 audio stripped to keep the skill light), so they validate and demonstrate every
 pattern but won't open as full games in Construct. Paths are under
-`reference/examples/`:
+`references/examples/`:
 
 - **`Spell Caster in code/`** — small, complete, idiomatic. Best starting point.
   Shows modules (`globals.ts`), a custom instance class (`goblin.ts`), utility
@@ -144,7 +154,7 @@ catches plain-TS logic errors. Read past every Construct-global error.
   `project.c3proj` (e.g. `main.ts`). It calls `runOnStartup(async runtime => …)`.
 - **Lifecycle wiring** lives in `runOnStartup` → `beforeprojectstart` →
   `beforelayoutstart`, and `runtime.addEventListener("tick", …)`. Copy the
-  shape from `reference/examples/Spell Caster in code/scripts/main.ts`.
+  shape from `references/examples/Spell Caster in code/scripts/main.ts`.
 - **Imports use explicit extensions**: `import Globals from "./globals.ts";`
   (Construct resolves `.ts`/`.js` itself — keep the extension).
 - **Globals**: top-level `let`/`const` are module-private. Share mutable state
@@ -184,7 +194,7 @@ A layout is `layouts/<Name>.json`: `{ name, layers: [ { name, instances:
 ```
 
 For the full step-by-step (add/duplicate instance, new object type, layers &
-Z-order, instance vars & behaviors) see **`RECIPES.md`** — each recipe ends in a
+Z-order, instance vars & behaviors) see **`references/RECIPES.md`** — each recipe ends in a
 validate run. In short: clone a sibling instance block of the same `type`, give
 it a fresh unique `uid` + `sid`, set `world.x/y`. Always re-run `validate.mjs`
 after a hand-edit — that is how you catch a bad `type`, a duplicate `uid`, an
@@ -231,6 +241,6 @@ undeclared instance variable, or a JSON typo before handing the folder back.
 | validator: `invalid JSON in layouts\… (line L column C)` | Hand-edit typo (usually a trailing comma or unbalanced brace) at that line. |
 | validator: `script "x.ts" is listed in project.c3proj but no matching file` | You removed/renamed a script file but left it in `project.c3proj` `rootFileFolders.script`, or vice-versa. Keep them in sync. |
 | validator: `uses plugin "X" which is not in usedAddons` | Add the plugin/behavior to `usedAddons` in `project.c3proj` (the editor does this when you add the plugin in-app). |
-| validator: `sets undeclared instance variable "X"` | The instance overrides a var not declared on its object type. Add it to the object type's `instanceVariables[]` first (RECIPES.md §4), or remove the override. |
-| validator: `behavior block "X" not attached to the object type` | The instance has a `behaviors` block whose key isn't a `behaviorTypes[].name` on its object type. Attach the behavior to the type first (RECIPES.md §4). |
+| validator: `sets undeclared instance variable "X"` | The instance overrides a var not declared on its object type. Add it to the object type's `instanceVariables[]` first (references/RECIPES.md §4), or remove the override. |
+| validator: `behavior block "X" not attached to the object type` | The instance has a `behaviors` block whose key isn't a `behaviorTypes[].name` on its object type. Attach the behavior to the type first (references/RECIPES.md §4). |
 | validator: `container references unknown object type "X"` | A `project.c3proj` container lists an object type that doesn't exist. Fix the name or remove it. |

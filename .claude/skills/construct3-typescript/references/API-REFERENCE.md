@@ -1,7 +1,7 @@
 # Construct 3 scripting — API reference (distilled)
 
 Distilled from the official Construct 3 manual and the bundled example projects
-under `reference/examples/`. Page numbers cite the manual (not bundled — it's a
+under `references/examples/`. Page numbers cite the manual (not bundled — it's a
 37 MB PDF) in case you have a copy: the scripting reference starts around
 **p.948** (`IRuntime`), with per-plugin instance interfaces under "Plugin
 interfaces." When `ts-defs/` is present (see SKILL.md), the `.d.ts` files are the
