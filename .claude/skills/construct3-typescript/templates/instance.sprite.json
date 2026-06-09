@@ -1,0 +1,29 @@
+{
+	"__comment": "A single layout instance block. Paste into a layout's layers[].instances[] array (delete this __comment line). type must match an objectTypes/*.json name. uid must be unique within the layout; sid must be unique & large. Adjust world.x/y/width/height. instanceVariables keys must be declared on the object type; behaviors keys must match behaviorTypes[].name on the object type.",
+	"type": "REPLACE_NAME",
+	"properties": {
+		"initially-visible": true,
+		"initial-animation": "Default",
+		"initial-frame": 0,
+		"enable-collisions": true,
+		"live-preview": false
+	},
+	"uid": 9999,
+	"sid": 100000000000020,
+	"tags": "",
+	"instanceVariables": {},
+	"behaviors": {},
+	"showing": true,
+	"locked": false,
+	"world": {
+		"x": 100,
+		"y": 100,
+		"width": 32,
+		"height": 32,
+		"originX": 0.5,
+		"originY": 0.5,
+		"color": [1, 1, 1, 1],
+		"z": 0,
+		"angle": 0
+	}
+}

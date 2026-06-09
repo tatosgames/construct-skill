@@ -1,0 +1,983 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 35000,
+	"name": "Command & Construct",
+	"runtime": "c3",
+	"useWorker": "worker",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Button",
+			"name": "Button",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Clipboard",
+			"name": "Clipboard",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "DrawingCanvas",
+			"name": "Drawing canvas",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "HTMLElement",
+			"name": "HTML Element",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Multiplayer",
+			"name": "Multiplayer",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TextBox",
+			"name": "Text input",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Tilemap",
+			"name": "Tilemap",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "qrcode",
+			"name": "QR code",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Fade",
+			"name": "Fade",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Pathfinding",
+			"name": "Pathfinding",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "solid",
+			"name": "Solid",
+			"author": "Scirra",
+			"bundled": false
+		}
+	],
+	"uniqueId": "nrrpzelemnm",
+	"objectTypes": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": [
+					{
+						"items": [
+							"CollisionGridMarker",
+							"StatsText",
+							"PFDebugTilemap",
+							"PFNode",
+							"PFNodeLine"
+						],
+						"subfolders": [],
+						"name": "Debug"
+					},
+					{
+						"items": [
+							"DirtTerrainBackground",
+							"Rock"
+						],
+						"subfolders": [],
+						"name": "Scenery"
+					},
+					{
+						"items": [
+							"DragSelectionBox",
+							"GameOverText",
+							"MinimapCanvasFast",
+							"MinimapCanvasSlow",
+							"UnitSelectionBox",
+							"MinimapCanvasTerrain",
+							"MinimapBackground",
+							"MoveMarker"
+						],
+						"subfolders": [],
+						"name": "UI"
+					},
+					{
+						"items": [
+							"PathfindingController",
+							"TankPlatform",
+							"TankShell",
+							"TankTurret",
+							"DebugStateText"
+						],
+						"subfolders": [],
+						"name": "Units"
+					},
+					{
+						"items": [
+							"Explosion"
+						],
+						"subfolders": [],
+						"name": "FX"
+					}
+				],
+				"name": "Main game"
+			},
+			{
+				"items": [
+					"BackToMenuButton",
+					"TitleText"
+				],
+				"subfolders": [
+					{
+						"items": [
+							"TitleMultiplayerHostButton",
+							"TitleMultiplayerJoinButton",
+							"TitleSinglePlayerButton",
+							"TitleVersion",
+							"TitleWIPHTML",
+							"SubTitleText",
+							"TitleFullscreenButton"
+						],
+						"subfolders": [],
+						"name": "Title"
+					},
+					{
+						"items": [
+							"JoinButton",
+							"JoinCode",
+							"MultiplayerHostInstructions",
+							"MultiplayerJoinStatus",
+							"MultiplayerStatusText",
+							"HostJoinLink",
+							"CopyLinkButton",
+							"QRCode"
+						],
+						"subfolders": [],
+						"name": "Host & Join"
+					}
+				],
+				"name": "Menus"
+			},
+			{
+				"items": [
+					"Multiplayer",
+					"Browser",
+					"Keyboard",
+					"Mouse",
+					"Clipboard"
+				],
+				"subfolders": [],
+				"name": "Global"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"ObjectBank"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"Title screen",
+					"Multiplayer host",
+					"Multiplayer join"
+				],
+				"subfolders": [],
+				"name": "Menus"
+			},
+			{
+				"items": [
+					"Game"
+				],
+				"subfolders": [],
+				"name": "Main game"
+			}
+		]
+	},
+	"eventSheets": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [
+					"Title screen events",
+					"Multiplayer host events",
+					"Multiplayer join events"
+				],
+				"subfolders": [],
+				"name": "Menus"
+			}
+		]
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [
+				{
+					"name": "main.js",
+					"type": "application/javascript",
+					"sid": 891324286926448,
+					"script-info": {
+						"purpose": "main"
+					}
+				},
+				{
+					"name": "globals.js",
+					"type": "application/javascript",
+					"sid": 619860845207922,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "importsForEvents.js",
+					"type": "application/javascript",
+					"sid": 520329324967828,
+					"script-info": {
+						"purpose": "imports-for-events"
+					}
+				}
+			],
+			"subfolders": [
+				{
+					"items": [
+						{
+							"name": "gameClient.js",
+							"type": "application/javascript",
+							"sid": 397287593748410,
+							"script-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "pathfindingController.js",
+							"type": "application/javascript",
+							"sid": 263929132365737,
+							"script-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [
+						{
+							"items": [
+								{
+									"name": "clientMessageHandler.js",
+									"type": "application/javascript",
+									"sid": 875270580096877,
+									"script-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "pingManager.js",
+									"type": "application/javascript",
+									"sid": 810001244852276,
+									"script-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "valueTimeline.js",
+									"type": "application/javascript",
+									"sid": 176801406673691,
+									"script-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "interpolatedValueTimeline.js",
+									"type": "application/javascript",
+									"sid": 245167409152623,
+									"script-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "steppedValueTimeline.js",
+									"type": "application/javascript",
+									"sid": 257463117919509,
+									"script-info": {
+										"purpose": "none"
+									}
+								}
+							],
+							"subfolders": [],
+							"name": "net"
+						},
+						{
+							"items": [
+								{
+									"name": "minimap.js",
+									"type": "application/javascript",
+									"sid": 576332944892003,
+									"script-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "pointerInfo.js",
+									"type": "application/javascript",
+									"sid": 611139322448243,
+									"script-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "pointerManager.js",
+									"type": "application/javascript",
+									"sid": 309881539756289,
+									"script-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "selectionManager.js",
+									"type": "application/javascript",
+									"sid": 989041766896446,
+									"script-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "viewManager.js",
+									"type": "application/javascript",
+									"sid": 925362525026348,
+									"script-info": {
+										"purpose": "none"
+									}
+								}
+							],
+							"subfolders": [],
+							"name": "ui"
+						}
+					],
+					"name": "gameClient"
+				},
+				{
+					"items": [
+						{
+							"name": "clientUnit.js",
+							"type": "application/javascript",
+							"sid": 713207232371656,
+							"script-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "clientPlatform.js",
+							"type": "application/javascript",
+							"sid": 164988207903823,
+							"script-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "clientTurret.js",
+							"type": "application/javascript",
+							"sid": 997773362382703,
+							"script-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "clientProjectile.js",
+							"type": "application/javascript",
+							"sid": 423287856916430,
+							"script-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "clientUnits"
+				},
+				{
+					"items": [
+						{
+							"name": "multiEventHandler.js",
+							"type": "application/javascript",
+							"sid": 465954533773660,
+							"script-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "clientMathUtils.js",
+							"type": "application/javascript",
+							"sid": 521760629692845,
+							"script-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "clientKahanSum.js",
+							"type": "application/javascript",
+							"sid": 237541289652919,
+							"script-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "utils"
+				},
+				{
+					"items": [
+						{
+							"name": "singlePlayer.js",
+							"type": "application/javascript",
+							"sid": 512117930063057,
+							"script-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "multiplayerHost.js",
+							"type": "application/javascript",
+							"sid": 677323216216942,
+							"script-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "multiplayerPeer.js",
+							"type": "application/javascript",
+							"sid": 329844038391418,
+							"script-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "gameModes"
+				}
+			]
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 209210804703770,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 720032325714940,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 503767946568475,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 690950375615512,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 201875665584492,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 946961943920830,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 555868865738240,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [
+				{
+					"name": "gamestyles.css",
+					"type": "text/css",
+					"sid": 304629985931916,
+					"file-info": {
+						"purpose": "stylesheet"
+					}
+				}
+			],
+			"subfolders": [
+				{
+					"items": [
+						{
+							"name": "serverWorker.js",
+							"type": "application/javascript",
+							"sid": 670017738482309,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "gameServer.js",
+							"type": "application/javascript",
+							"sid": 135371504092731,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "serverMessageHandler.js",
+							"type": "application/javascript",
+							"sid": 669347999869224,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "serverPathfinding.js",
+							"type": "application/javascript",
+							"sid": 860208971998632,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [
+						{
+							"items": [
+								{
+									"name": "unitPlatform.js",
+									"type": "application/javascript",
+									"sid": 686585613538645,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "unit.js",
+									"type": "application/javascript",
+									"sid": 144911673018641,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "movableUnitPlatform.js",
+									"type": "application/javascript",
+									"sid": 281161574381978,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "unitTurret.js",
+									"type": "application/javascript",
+									"sid": 967605103573632,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "objectData.js",
+									"type": "application/javascript",
+									"sid": 110843105602003,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "projectile.js",
+									"type": "application/javascript",
+									"sid": 229562340032062,
+									"file-info": {
+										"purpose": "none"
+									}
+								}
+							],
+							"subfolders": [
+								{
+									"items": [
+										{
+											"name": "unitMovementController.js",
+											"type": "application/javascript",
+											"sid": 689911879075945,
+											"file-info": {
+												"purpose": "none"
+											}
+										},
+										{
+											"name": "stopping.js",
+											"type": "application/javascript",
+											"sid": 812760053415413,
+											"file-info": {
+												"purpose": "none"
+											}
+										},
+										{
+											"name": "rotateFirst.js",
+											"type": "application/javascript",
+											"sid": 259108538630515,
+											"file-info": {
+												"purpose": "none"
+											}
+										},
+										{
+											"name": "moving.js",
+											"type": "application/javascript",
+											"sid": 463305752858328,
+											"file-info": {
+												"purpose": "none"
+											}
+										},
+										{
+											"name": "unitMovementState.js",
+											"type": "application/javascript",
+											"sid": 123425829059399,
+											"file-info": {
+												"purpose": "none"
+											}
+										},
+										{
+											"name": "reverse.js",
+											"type": "application/javascript",
+											"sid": 556118900877527,
+											"file-info": {
+												"purpose": "none"
+											}
+										}
+									],
+									"subfolders": [],
+									"name": "movement"
+								}
+							],
+							"name": "units"
+						},
+						{
+							"items": [
+								{
+									"name": "positionedObject.js",
+									"type": "application/javascript",
+									"sid": 866746407871402,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "positionedAndAngledObject.js",
+									"type": "application/javascript",
+									"sid": 176447193185107,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "movableObject.js",
+									"type": "application/javascript",
+									"sid": 278147279429960,
+									"file-info": {
+										"purpose": "none"
+									}
+								}
+							],
+							"subfolders": [],
+							"name": "classes"
+						},
+						{
+							"items": [
+								{
+									"name": "mathUtils.js",
+									"type": "application/javascript",
+									"sid": 263124639652415,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "kahanSum.js",
+									"type": "application/javascript",
+									"sid": 151940946140854,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "promiseThrottle.js",
+									"type": "application/javascript",
+									"sid": 991599241670137,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "latencySimulation.js",
+									"type": "application/javascript",
+									"sid": 936383064488687,
+									"file-info": {
+										"purpose": "none"
+									}
+								}
+							],
+							"subfolders": [],
+							"name": "utils"
+						},
+						{
+							"items": [
+								{
+									"name": "networkEvent.js",
+									"type": "application/javascript",
+									"sid": 801217679862323,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "fireProjectile.js",
+									"type": "application/javascript",
+									"sid": 357902505088976,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "projectileHit.js",
+									"type": "application/javascript",
+									"sid": 177271476484067,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "networkEvents.js",
+									"type": "application/javascript",
+									"sid": 760659018331906,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "unitDestroyed.js",
+									"type": "application/javascript",
+									"sid": 997311689425469,
+									"file-info": {
+										"purpose": "none"
+									}
+								}
+							],
+							"subfolders": [],
+							"name": "networkEvents"
+						},
+						{
+							"items": [
+								{
+									"name": "collisionShape.js",
+									"type": "application/javascript",
+									"sid": 797768093342991,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "collisionGrid.js",
+									"type": "application/javascript",
+									"sid": 756361925958533,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "collisionBox.js",
+									"type": "application/javascript",
+									"sid": 326470003671956,
+									"file-info": {
+										"purpose": "none"
+									}
+								}
+							],
+							"subfolders": [],
+							"name": "collisions"
+						}
+					],
+					"name": "gameServer"
+				}
+			]
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "",
+		"version": "0.0.5.1",
+		"author": "Ashley Gullen",
+		"authorEmail": "",
+		"authorWebsite": "",
+		"appId": "",
+		"pixelRounding": false,
+		"zAxisScale": "regular",
+		"fov": 0.7853981633974483,
+		"useLoaderLayout": false,
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"orientations": "landscape",
+		"webgpu": "auto",
+		"gpuPreference": "high-performance",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"renderingMode": "auto",
+		"anisotropicFiltering": "auto",
+		"zNear": 10,
+		"zFar": 50000,
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"cordovaiOSScheme": "app",
+		"cordovaAndroidScheme": "https",
+		"autoReloadScriptsOnPreview": false,
+		"exportFileStructure": "folders",
+		"uidAllocationMode": "increment"
+	},
+	"viewportWidth": 1920,
+	"viewportHeight": 1080,
+	"firstLayout": "Title screen"
+}
