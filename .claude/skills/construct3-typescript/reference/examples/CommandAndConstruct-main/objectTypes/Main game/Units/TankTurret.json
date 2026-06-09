@@ -1,0 +1,62 @@
+{
+	"name": "TankTurret",
+	"plugin-id": "Sprite",
+	"sid": 594957662906268,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 191077446518507
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 190,
+						"height": 95,
+						"originX": 0.2631578947368421,
+						"originY": 0.5157894736842106,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6749816,
+						"collisionPoly": {
+							"points": [
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								1,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Shoot",
+								"x": 0.9736842105263158,
+								"y": 0.5157894736842106
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 454660776469241,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

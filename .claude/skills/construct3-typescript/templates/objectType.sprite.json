@@ -1,0 +1,49 @@
+{
+	"name": "REPLACE_NAME",
+	"plugin-id": "Sprite",
+	"sid": 100000000000001,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [
+		{
+			"name": "health",
+			"type": "number",
+			"initialValue": 5,
+			"desc": "Example instance variable. Remove or edit.",
+			"show": true,
+			"sid": 100000000000002
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 1,
+						"useCollisionPoly": false,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 100000000000003,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

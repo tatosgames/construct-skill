@@ -1,0 +1,298 @@
+{
+	"name": "Multiplayer host",
+	"layers": [
+		{
+			"name": "Layer 0",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "TitleText",
+					"properties": {
+						"text": "Host multiplayer",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 72,
+						"line-height": 0,
+						"bold": true,
+						"italic": false,
+						"color": [
+							0.7294117647058823,
+							0.7294117647058823,
+							0.7294117647058823,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 11,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 220,
+						"y": 19,
+						"width": 1465.35,
+						"height": 158.95833333333337,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "BackToMenuButton",
+					"properties": {
+						"type": "button",
+						"text": "Back to menu",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": false,
+						"checked": false,
+						"id": "",
+						"class": "backbutton"
+					},
+					"uid": 15,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 41,
+						"y": 954,
+						"width": 422,
+						"height": 99,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "MultiplayerStatusText",
+					"properties": {
+						"text": "Status...",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 72,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.7294117647058823,
+							0.7294117647058823,
+							0.7294117647058823,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 18,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 230,
+						"y": 127,
+						"width": 1465.35,
+						"height": 158.95833333333337,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MultiplayerHostInstructions",
+					"properties": {
+						"text": "Send the link below to someone else, scan the QR code, or get another player to load up this game, choose [i]Join multiplayer[/i] on the title screen, and enter the code above.",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 48,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.7294117647058823,
+							0.7294117647058823,
+							0.7294117647058823,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 19,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 62,
+						"y": 239,
+						"width": 1805.35,
+						"height": 240.95833333333337,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "HostJoinLink",
+					"properties": {
+						"text": "",
+						"placeholder": "",
+						"tooltip": "",
+						"initially-visible": false,
+						"enabled": true,
+						"read-only": false,
+						"spell-check": false,
+						"type": "text",
+						"auto-font-size": false,
+						"id": "",
+						"class": "hostsharelink"
+					},
+					"uid": 24,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 45,
+						"y": 477,
+						"width": 1516,
+						"height": 116,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "CopyLinkButton",
+					"properties": {
+						"type": "button",
+						"text": "Copy",
+						"tooltip": "",
+						"initially-visible": false,
+						"enabled": true,
+						"auto-font-size": false,
+						"checked": false,
+						"id": "",
+						"class": "copybutton"
+					},
+					"uid": 72,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 1576,
+						"y": 476,
+						"width": 314,
+						"height": 119,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "QRCode",
+					"properties": {
+						"text": "https://www.commandandconstruct.com",
+						"correction-level": "h",
+						"initially-visible": false
+					},
+					"uid": 74,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 738.5,
+						"y": 612,
+						"width": 442.91759956000845,
+						"height": 442.91759956000845,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				}
+			],
+			"sid": 208347166814908,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.25098039215686274,
+				0.25098039215686274,
+				0.25098039215686274,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		}
+	],
+	"sid": 399156868003954,
+	"nonworld-instances": [],
+	"effectTypes": [],
+	"width": 3840,
+	"height": 2160,
+	"unboundedScrolling": false,
+	"vpX": 0.5,
+	"vpY": 0.5,
+	"projection": "perspective",
+	"eventSheet": "Multiplayer host events"
+}

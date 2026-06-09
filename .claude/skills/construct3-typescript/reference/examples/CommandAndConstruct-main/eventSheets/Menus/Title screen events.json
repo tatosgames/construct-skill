@@ -1,0 +1,297 @@
+{
+	"name": "Title screen events",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "AutoJoinCode",
+			"type": "string",
+			"initialValue": "",
+			"comment": "Tries to join this code on startup if set.",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 244990833562022
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 676819862963951
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "TitleVersion",
+					"sid": 405910065750894,
+					"parameters": {
+						"text": "\"v\" & projectversion"
+					}
+				}
+			],
+			"sid": 551028647015909,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "On startup if there is a hash specified in the URL, e.g. #abcde, try to automatically join that multiplayer game code. Note the Browser.Hash expression includes the # character so for a five character code the hash string length will be 6. Also clear the hash so this is only attempted once."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 460438534851800,
+							"parameters": {
+								"first-value": "len(Browser.Hash)",
+								"comparison": 0,
+								"second-value": "6"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 966580108190078,
+							"parameters": {
+								"variable": "AutoJoinCode",
+								"value": "mid(Browser.Hash, 1, 5)"
+							}
+						},
+						{
+							"id": "set-hash",
+							"objectClass": "Browser",
+							"sid": 631487320690261,
+							"parameters": {
+								"hash": "\"\""
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 599426283875549,
+							"parameters": {
+								"layout": "Multiplayer join"
+							}
+						}
+					],
+					"sid": 791264362745291
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Clicked 'Single player' button: set the game mode and go directly to the game layout."
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "TitleSinglePlayerButton",
+					"sid": 461523454907489
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"script": "Globals.gameMode = \"single-player\";"
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 177846663280451,
+					"parameters": {
+						"layout": "Game"
+					}
+				}
+			],
+			"sid": 366909020626275
+		},
+		{
+			"eventType": "comment",
+			"text": "Multiplayer host/join: go to a dedicated layout to set that up."
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "TitleMultiplayerHostButton",
+					"sid": 681893288516255
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 580333531795580,
+					"parameters": {
+						"layout": "Multiplayer host"
+					}
+				}
+			],
+			"sid": 579247601557793
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "TitleMultiplayerJoinButton",
+					"sid": 190498661763353
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 379245070003671,
+					"parameters": {
+						"layout": "Multiplayer join"
+					}
+				}
+			],
+			"sid": 985098261425246
+		},
+		{
+			"eventType": "comment",
+			"text": "Display on the title screen when an update is downloading or ready."
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-update-found-sw",
+					"objectClass": "Browser",
+					"sid": 874284035725678
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "SubTitleText",
+					"sid": 903573026735962,
+					"parameters": {
+						"text": "\"Downloading update...\""
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "SubTitleText",
+					"sid": 702343385270252,
+					"parameters": {
+						"color": "rgbEx(100, 100, 0)"
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "TitleVersion",
+					"sid": 637353095619216,
+					"parameters": {
+						"color": "rgbEx(100, 100, 0)"
+					}
+				}
+			],
+			"sid": 502007737793879
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-update-ready-sw",
+					"objectClass": "Browser",
+					"sid": 698908846600218
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "SubTitleText",
+					"sid": 245657352025937,
+					"parameters": {
+						"text": "\"Update available! Reload to update.\""
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "SubTitleText",
+					"sid": 929715876301519,
+					"parameters": {
+						"color": "rgbEx(100, 100, 0)"
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "TitleVersion",
+					"sid": 503781103709405,
+					"parameters": {
+						"color": "rgbEx(100, 100, 0)"
+					}
+				}
+			],
+			"sid": 554682497990135
+		},
+		{
+			"eventType": "comment",
+			"text": "Toggle fullscreen with the Browser object when clicking the fullscreen button."
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "TitleFullscreenButton",
+					"sid": 568902891773315
+				}
+			],
+			"actions": [],
+			"sid": 872868427128650,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-fullscreen",
+							"objectClass": "Browser",
+							"sid": 334611950539390
+						}
+					],
+					"actions": [
+						{
+							"id": "cancel-fullscreen",
+							"objectClass": "Browser",
+							"sid": 149247703242387
+						}
+					],
+					"sid": 522045877105335
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 784642723233189
+						}
+					],
+					"actions": [
+						{
+							"id": "request-fullscreen",
+							"objectClass": "Browser",
+							"sid": 958866502671827,
+							"parameters": {
+								"mode": "stretch-letterbox-scale",
+								"navigation-ui": "auto"
+							}
+						}
+					],
+					"sid": 768959376236883
+				}
+			]
+		}
+	],
+	"sid": 202028505943856
+}

@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# Construct 3 editor-generated / local artifacts
+*.uistate.json
+**/ts-defs/
+*.c3p
+
+# Large manuals (keep them out of the package)
+construct-3.pdf
+construct-3.txt
+
+# Build output
+dist/
+build/

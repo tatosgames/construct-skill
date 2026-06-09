@@ -1,0 +1,10 @@
+{
+	"name": "REPLACE_NAME",
+	"plugin-id": "Text",
+	"sid": 100000000000010,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": []
+}
