@@ -1,8 +1,11 @@
-# construct3-typescript — a Claude skill
+# construct3-typescript
 
 A self-contained [Agent Skill](https://agentskills.io) that helps AI agents
 **write TypeScript for [Construct 3](https://www.construct.net) games** and
 **edit Construct scenes/layouts by hand** — safely and idiomatically.
+
+Compatible with **Claude Code**, **Codex**, **Antigravity**, and
+[any agent supported by skills.sh](https://skills.sh).
 
 ## What it's for
 
@@ -64,12 +67,13 @@ skills/construct3-typescript/
 
 ## Use it
 
-After installing, ask Claude to "write Construct 3 TypeScript", "edit a Construct
-scene", "add an object type", or "validate my Construct project". Or run the
-validator directly:
+After installing, ask your agent to "write Construct 3 TypeScript", "edit a
+Construct scene", "add an object type", or "validate my Construct project".
+Or run the validator directly (path will match your agent's install location):
 
 ```bash
-node skills/construct3-typescript/scripts/validate.mjs "path/to/your/project"
+# Example — Claude Code global install
+node ~/.claude/skills/construct3-typescript/scripts/validate.mjs "path/to/your/project"
 ```
 
 ## Author / License
