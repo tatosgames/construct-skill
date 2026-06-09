@@ -40,16 +40,16 @@ JSON, adding an object type, wiring scripts into the runtime, or validating a
 
 ```bash
 # Claude Code
-npx skills add tatosgames/SkillConstruct -a claude-code
+npx skills add tatosgames/construct-skill -a claude-code
 
 # Codex
-npx skills add tatosgames/SkillConstruct -a codex
+npx skills add tatosgames/construct-skill -a codex
 
 # Antigravity
-npx skills add tatosgames/SkillConstruct -a antigravity
+npx skills add tatosgames/construct-skill -a antigravity
 
 # All three at once
-npx skills add tatosgames/SkillConstruct -a claude-code -a codex -a antigravity
+npx skills add tatosgames/construct-skill -a claude-code -a codex -a antigravity
 ```
 
 ## What's inside
