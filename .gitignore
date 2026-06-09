@@ -33,3 +33,7 @@ construct-3.txt
 # Build output
 dist/
 build/
+
+# Agent skill installation directories (managed by `npx skills add`, not committed)
+.claude/skills/
+.agents/skills/

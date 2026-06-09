@@ -36,15 +36,23 @@ JSON, adding an object type, wiring scripts into the runtime, or validating a
 ## Install
 
 ```bash
-npx skills add tatosgames/SkillConstruct
-```
+# Claude Code
+npx skills add tatosgames/SkillConstruct -a claude-code
 
-(The `skills` CLI auto-discovers the skill from `.claude/skills/`.)
+# Codex
+npx skills add tatosgames/SkillConstruct -a codex
+
+# Antigravity
+npx skills add tatosgames/SkillConstruct -a antigravity
+
+# All three at once
+npx skills add tatosgames/SkillConstruct -a claude-code -a codex -a antigravity
+```
 
 ## What's inside
 
 ```
-.claude/skills/construct3-typescript/
+skills/construct3-typescript/
   SKILL.md                     man page — start here
   scripts/validate.mjs         the harness: validates a Construct project after hand-edits
   references/RECIPES.md        step-by-step scene/code edit procedures
@@ -61,7 +69,7 @@ scene", "add an object type", or "validate my Construct project". Or run the
 validator directly:
 
 ```bash
-node .claude/skills/construct3-typescript/scripts/validate.mjs "path/to/your/project"
+node skills/construct3-typescript/scripts/validate.mjs "path/to/your/project"
 ```
 
 ## Author / License
